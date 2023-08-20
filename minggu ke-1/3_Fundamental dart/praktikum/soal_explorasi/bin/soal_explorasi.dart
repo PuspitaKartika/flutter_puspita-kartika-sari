@@ -11,6 +11,15 @@ bool isPalindrome(String word) {
   return true;
 }
 
+void bilangan(int number) {
+  print("Faktor dari $number adalah:");
+  for (int i = 1; i <= number - 1; i++) {
+    if (number % i == 0) {
+      print(i);
+    }
+  }
+}
+
 void main() {
   //soal explorasi 1
   String input1 = "Kasur rusak";
@@ -28,4 +37,8 @@ void main() {
   } else {
     print("bukan palindrom");
   }
+
+  //soal eksplorasi 2
+  print("\n====== Soal Eksplorasi no 2 =====");
+  bilangan(24);
 }

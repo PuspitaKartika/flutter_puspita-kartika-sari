@@ -10,6 +10,12 @@ void faktor(int angka) {
   }
 }
 
+//luas lingkaran
+void luasLingkaran(int r) {
+  double luas = 3.14 * r * r;
+  print("\nluas lingkaran = $luas");
+}
+
 void main(List<String> arguments) {
   //Soal prioritas 2
   //no 1
@@ -30,4 +36,6 @@ void main(List<String> arguments) {
   faktor(10);
   faktor(40);
   faktor(50);
+
+  luasLingkaran(7);
 }

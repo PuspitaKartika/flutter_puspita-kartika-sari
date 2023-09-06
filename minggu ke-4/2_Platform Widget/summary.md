@@ -48,8 +48,9 @@ CupertinoApp(
     theme: _themeDark,
     home: const HomePage(),
 );
-'''
+```
 tapi kita perlu membuat variabel _themeDark dulu karena CUpertino tidak menyediakan ThemeData.dark()
+
 ```markdown
 final _themeDark = const CupertinoThemeData.raw(
     Brightness.dark,

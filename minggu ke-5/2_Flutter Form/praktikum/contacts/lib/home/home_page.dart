@@ -19,6 +19,39 @@ class _HomePageState extends State<HomePage> {
   final nameEdc = TextEditingController();
   final noHpEdc = TextEditingController();
   int indexContact = -1;
+  final _formKey = GlobalKey<FormState>();
+
+  String? validateName(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Nama tidak boleh kosong';
+    }
+
+    final RegExp namePattern = RegExp(r"^[A-Z][a-zA-Z]*\s[A-Z][a-zA-Z]*$");
+
+    if (!namePattern.hasMatch(value)) {
+      return 'Invalid name format. tidak boleh ada karakter.';
+    }
+
+    return null;
+  }
+
+  String? validatePhoneNumber(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Nomor tidak boleh kosong';
+    }
+
+    if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
+      return 'number must contain only digits';
+    }
+    if (value.length < 8 || value.length > 15) {
+      return 'number must be between 8 and 15 digits';
+    }
+    if (value[0] != '0') {
+      return 'number must start with the digit 0';
+    }
+
+    return null;
+  }
 
   void addContact() {
     contactList.add(ContactModel(name: nameEdc.text, no: noHpEdc.text));
@@ -66,21 +99,31 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             const HeaderHome(),
-            CustomTextField(
-              controller: nameEdc,
-              name: "Nama",
-              hintText: "Insert Your Name",
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            CustomTextField(
-              controller: noHpEdc,
-              name: "Nomor",
-              hintText: "+62 ....",
-            ),
-            const SizedBox(
-              height: 15,
+            Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  CustomTextField(
+                    validator: validateName,
+                    controller: nameEdc,
+                    name: "Nama",
+                    hintText: "Insert Your Name",
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  CustomTextField(
+                    validator: validatePhoneNumber,
+                    keyboardType: TextInputType.number,
+                    controller: noHpEdc,
+                    name: "Nomor",
+                    hintText: "+62 ....",
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  )
+                ],
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -109,7 +152,7 @@ class _HomePageState extends State<HomePage> {
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(28),
-                    color: Colors.lightBlue.shade100),
+                    color: secondaryColor),
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 margin: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(

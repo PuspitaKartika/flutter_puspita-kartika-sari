@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:intl/intl.dart';
 import 'package:open_file/open_file.dart';
-import 'package:soal_prioritas1/view/galeri/galeri_page.dart';
 import '../../models/contact_model.dart';
 import '../../utils/custom_textfield.dart';
 import '../../utils/theme.dart';
@@ -207,10 +206,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               TextButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomePage()));
+                    Navigator.pushNamed(context, '/home');
                   },
                   child: const Text("Contact")),
               const SizedBox(
@@ -218,8 +214,7 @@ class _HomePageState extends State<HomePage> {
               ),
               TextButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const GaleriPage()));
+                    Navigator.pushNamed(context, '/galeri');
                   },
                   child: const Text("Galeri"))
             ],

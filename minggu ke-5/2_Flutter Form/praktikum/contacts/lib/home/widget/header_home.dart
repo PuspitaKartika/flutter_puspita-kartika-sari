@@ -8,7 +8,8 @@ class HeaderHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(40, 56, 40, 16),
-      child: Column(
+      child: 
+      Column(
         children: [
           const Icon(Icons.phonelink_setup),
           const SizedBox(

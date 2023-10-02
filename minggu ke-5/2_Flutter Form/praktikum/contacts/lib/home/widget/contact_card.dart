@@ -33,7 +33,8 @@ class ContactCard extends StatelessWidget {
         no,
         style: secondTextStyle,
       ),
-      trailing: Row(
+      trailing: 
+      Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           IconButton(onPressed: onTapEdit, icon: const Icon(Icons.edit)),

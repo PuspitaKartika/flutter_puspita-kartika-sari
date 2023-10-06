@@ -20,6 +20,7 @@ ElevatedButton(
         }
     }
 )
+```
 
 ## Global State
 Global state adalah state biasa yang dapat digunakan pada seluruh widget

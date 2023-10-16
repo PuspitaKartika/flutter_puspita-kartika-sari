@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:soal_prioritas1/bloc/add_contact/add_user_cubit.dart';
+import 'package:soal_prioritas1/model/user_no2.dart';
 
 import '../../utils/custom_textfield.dart';
 import '../../utils/theme.dart';
@@ -50,6 +53,20 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
+  void soal2() {
+    Map<String, dynamic> jsonData = {
+      "id": 2,
+      "nama": "John Thor",
+      "telepon": "0857676565688"
+    };
+
+    User2 user = User2.fromJson(jsonData);
+
+    print(user.id); // 2
+    print(user.nama); // "John Thor"
+    print(user.telepon);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                     const SizedBox(
                       height: 30,
                     ),
-                    Text("No 1"),
+                    const Text("No 1"),
                     CustomTextField(
                       validator: validateName,
                       controller: nameEdc,
@@ -121,6 +138,14 @@ class _HomePageState extends State<HomePage> {
                   )
                 ],
               ),
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                const Text("Soal no 2"),
+                ElevatedButton(
+                    onPressed: () {
+                      soal2();
+                    },
+                    child: const Text("Lihat terminal"))
+              ])
             ],
           ),
         ));

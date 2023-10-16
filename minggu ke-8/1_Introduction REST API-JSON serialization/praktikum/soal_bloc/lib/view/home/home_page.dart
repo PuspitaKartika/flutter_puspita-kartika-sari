@@ -1,8 +1,8 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:soal_prioritas1/bloc/add_contact/add_user_cubit.dart';
+import 'package:soal_prioritas1/bloc/get_data/get_data_cubit.dart';
+import 'package:soal_prioritas1/bloc/update_data/update_data_dart_cubit.dart';
 import 'package:soal_prioritas1/model/user_no2.dart';
 
 import '../../utils/custom_textfield.dart';
@@ -20,6 +20,11 @@ class _HomePageState extends State<HomePage> {
   final noHpEdc = TextEditingController();
   int indexContact = -1;
   final _formKey = GlobalKey<FormState>();
+
+  void initState() {
+    context.read<GetDataCubit>().fetchData();
+    super.initState();
+  }
 
   String? validateName(String? value) {
     if (value == null || value.isEmpty) {
@@ -138,14 +143,67 @@ class _HomePageState extends State<HomePage> {
                   )
                 ],
               ),
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                const Text("Soal no 2"),
-                ElevatedButton(
-                    onPressed: () {
-                      soal2();
-                    },
-                    child: const Text("Lihat terminal"))
-              ])
+              const Text("Soal no 2"),
+              ElevatedButton(
+                  onPressed: () {
+                    soal2();
+                  },
+                  child: const Text("Lihat terminal")),
+              SizedBox(
+                height: 30,
+              ),
+              Text("Soal no 3"),
+              BlocBuilder<GetDataCubit, GetDataState>(
+                  builder: (context, state) {
+                if (state is GetDataSuccess) {
+                  final data = state.data;
+                  final titleEcd = TextEditingController(text: data.title);
+                  final bodyEcd = TextEditingController(text: data.body);
+
+                  return Padding(
+                    padding: const EdgeInsets.all(30),
+                    child: Column(
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Title : "),
+                            Expanded(
+                              child: TextFormField(
+                                maxLines: 3,
+                                controller: titleEcd,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Body : "),
+                            Expanded(
+                              child: TextFormField(
+                                maxLines: 6,
+                                controller: bodyEcd,
+                              ),
+                            ),
+                          ],
+                        ),
+                        ElevatedButton(
+                            onPressed: () {
+                              context
+                                  .read<UpdateDataDartCubit>()
+                                  .updateData(titleEcd.text, bodyEcd.text);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content: Text("Berhasil memperbarui")));
+                            },
+                            child: Text("update"))
+                      ],
+                    ),
+                  );
+                }
+                return Container();
+              })
             ],
           ),
         ));

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:soal_prioritas1/bloc/add_contact/add_user_cubit.dart';
+import 'package:soal_prioritas1/bloc/get_data/get_data_cubit.dart';
+import 'package:soal_prioritas1/bloc/update_data/update_data_dart_cubit.dart';
 
 import 'package:soal_prioritas1/view/home/home_page.dart';
 
@@ -18,6 +20,12 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => AddUserCubit(),
+        ),
+        BlocProvider(
+          create: (context) => GetDataCubit(),
+        ),
+        BlocProvider(
+          create: (context) => UpdateDataDartCubit(),
         ),
       ],
       child: MaterialApp(

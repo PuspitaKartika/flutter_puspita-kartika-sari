@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_al_quran_digital/dasboard.dart';
+import 'package:my_al_quran_digital/feature/al-quran/alquran_screen.dart';
 import 'package:my_al_quran_digital/splash_screen.dart';
 
 void main() {
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => const SplashScreen(),
-          '/dashboard': (context) => const Dasboard()
+          '/dashboard': (context) => const Dasboard(),
+          '/alquran': (context) => const AlQuranScreen()
         });
   }
 }

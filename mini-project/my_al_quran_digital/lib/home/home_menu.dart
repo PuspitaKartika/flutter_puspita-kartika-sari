@@ -15,7 +15,11 @@ class _HomeMenuState extends State<HomeMenu> {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         CustomButtonIconImage(
-            onTap: () {}, iconImage: "icon_quran.png", text: "Al-Quran"),
+            onTap: () {
+              Navigator.pushNamed(context, '/alquran');
+            },
+            iconImage: "icon_quran.png",
+            text: "Al-Quran"),
         CustomButtonIconImage(
             onTap: () {}, iconImage: "Icon_doa.png", text: "Doa"),
         CustomButtonIconImage(

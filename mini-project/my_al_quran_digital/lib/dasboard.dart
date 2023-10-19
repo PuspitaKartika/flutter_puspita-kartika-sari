@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_al_quran_digital/home/home_screen.dart';
 import 'package:my_al_quran_digital/theme.dart';
 
 class Dasboard extends StatefulWidget {
@@ -11,7 +12,7 @@ class Dasboard extends StatefulWidget {
 class _DasboardState extends State<Dasboard> {
   int currenIndex = 0;
   List bodyScreen = [
-    const Center(child: Text("Home")),
+    const HomeScreen(),
     const Center(child: Text("menu1")),
     const Center(child: Text("menu1")),
     const Text("profile"),

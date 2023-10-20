@@ -81,5 +81,5 @@ class AyatModel {
       teksArab: json["teksArab"],
       teksLatin: json["teksLatin"],
       teksIndonesia: json["teksIndonesia"],
-      audio: json["audio"]);
+      audio: AudioModel.fromjson(json["audio"]));
 }

@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
             style: primaryText.copyWith(fontWeight: FontWeight.bold),
           ),
         ),
-        const SurahCard(),
+        //const SurahCard(),
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 20, 20, 5),
           child: Text(

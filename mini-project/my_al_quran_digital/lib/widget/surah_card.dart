@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:my_al_quran_digital/model/alquran_model.dart';
 import 'package:my_al_quran_digital/theme.dart';
 
 class SurahCard extends StatelessWidget {
-  const SurahCard({super.key});
+  final AlQuranModel item;
+  const SurahCard({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
@@ -19,18 +21,24 @@ class SurahCard extends StatelessWidget {
         children: [
           Image.asset(
             "assets/quran.png",
-            height: 80,
+            height: 40,
           ),
           Column(
             children: [
-              Text(
-                "Al - Fatihah",
-                style: primaryText.copyWith(
-                    fontSize: 24, fontWeight: FontWeight.bold),
+              Row(
+                children: [
+                  Text(
+                    item.namaLatin,
+                    style: primaryText.copyWith(
+                        fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    " (${item.arti} )",
+                    style: primaryText,
+                  ),
+                ],
               ),
-              const Text("Arti : Pembuka"),
-              const Text("Tempat Turun: Mekah"),
-              const Text("Jumlah : 7 ayat"),
+              Text("${item.tempatTurun} || ${item.jumlahAyat} ayat"),
             ],
           ),
           Container(

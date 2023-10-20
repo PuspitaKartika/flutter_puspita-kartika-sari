@@ -19,3 +19,12 @@ class GetAllSurahSuccess extends GetAllSurahState {
   @override
   List<Object> get props => [data];
 }
+
+class GetAllSurahFailure extends GetAllSurahState {
+  final String msg;
+
+  const GetAllSurahFailure({required this.msg});
+
+  @override
+  List<Object> get props => [msg];
+}

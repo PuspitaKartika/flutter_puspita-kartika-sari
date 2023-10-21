@@ -21,7 +21,11 @@ class _HomeMenuState extends State<HomeMenu> {
             iconImage: "icon_quran.png",
             text: "Al-Quran"),
         CustomButtonIconImage(
-            onTap: () {}, iconImage: "Icon_doa.png", text: "Doa"),
+            onTap: () {
+              Navigator.pushNamed(context, '/doa');
+            },
+            iconImage: "Icon_doa.png",
+            text: "Doa"),
         CustomButtonIconImage(
             onTap: () {}, iconImage: "Icon_tafsir.png", text: "Tafsir")
       ],

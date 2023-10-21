@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_al_quran_digital/bloc/get_all_surah/get_all_surah_cubit.dart';
+import 'package:my_al_quran_digital/bloc/get_doa_list/get_doa_list_cubit.dart';
 import 'package:my_al_quran_digital/bloc/get_surah_by)id/get_surah_by_id_cubit.dart';
 import 'package:my_al_quran_digital/dasboard.dart';
 import 'package:my_al_quran_digital/feature/al-quran/alquran_screen.dart';
+import 'package:my_al_quran_digital/feature/doa/doa_screen.dart';
 import 'package:my_al_quran_digital/splash_screen.dart';
 
 void main() {
@@ -19,7 +21,8 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => GetAllSurahCubit()),
-        BlocProvider(create: (_) => GetSurahByIdCubit())
+        BlocProvider(create: (_) => GetSurahByIdCubit()),
+        BlocProvider(create: (_) => GetDoaListCubit())
       ],
       child: MaterialApp(
           title: 'Flutter Demo',
@@ -32,6 +35,7 @@ class MyApp extends StatelessWidget {
             '/': (context) => const SplashScreen(),
             '/dashboard': (context) => const Dasboard(),
             '/alquran': (context) => const AlQuranScreen(),
+            '/doa': (context) => const DoaScreen()
           }),
     );
   }

@@ -1,5 +1,5 @@
 class DoaModel {
-  int? id;
+  int id;
   String? grup;
   String? nama;
   String? ar;
@@ -10,7 +10,7 @@ class DoaModel {
   String? tag;
 
   DoaModel(
-      {this.id,
+      {required this.id,
       this.grup,
       this.nama,
       this.ar,

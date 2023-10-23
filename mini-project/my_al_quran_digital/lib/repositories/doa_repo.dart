@@ -10,7 +10,7 @@ class DoaRepo extends BaseService {
   }
 
   Future<DoaModel> getDoaById({required int id}) async {
-    final res = await get(endpoint: "/doa/id");
+    final res = await get(endpoint: "/doa/$id");
     print(res.data);
     return DoaModel.fromJson(res.data);
   }

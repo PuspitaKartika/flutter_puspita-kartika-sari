@@ -4,6 +4,7 @@ import 'package:my_al_quran_digital/bloc/get_all_surah/get_all_surah_cubit.dart'
 import 'package:my_al_quran_digital/bloc/get_doa_by_id/get_doa_byid_cubit.dart';
 import 'package:my_al_quran_digital/bloc/get_doa_list/get_doa_list_cubit.dart';
 import 'package:my_al_quran_digital/bloc/get_surah_by_id/get_surah_by_id_cubit.dart';
+import 'package:my_al_quran_digital/bloc/get_tafsir/get_tafsir_cubit.dart';
 import 'package:my_al_quran_digital/dasboard.dart';
 import 'package:my_al_quran_digital/feature/al-quran/alquran_screen.dart';
 import 'package:my_al_quran_digital/feature/doa/doa_screen.dart';
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => GetAllSurahCubit()),
         BlocProvider(create: (_) => GetSurahByIdCubit()),
         BlocProvider(create: (_) => GetDoaListCubit()),
-        BlocProvider(create: (_) => GetDoaByidCubit())
+        BlocProvider(create: (_) => GetDoaByidCubit()),
+        BlocProvider(create: (_) => GetTafsirCubit())
       ],
       child: MaterialApp(
           title: 'Flutter Demo',
@@ -37,7 +39,7 @@ class MyApp extends StatelessWidget {
             '/': (context) => const SplashScreen(),
             '/dashboard': (context) => const Dasboard(),
             '/alquran': (context) => const AlQuranScreen(),
-            '/doa': (context) => const DoaScreen()
+            '/doa': (context) => const DoaScreen(),
           }),
     );
   }

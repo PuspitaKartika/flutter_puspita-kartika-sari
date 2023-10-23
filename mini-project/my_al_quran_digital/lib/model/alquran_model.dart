@@ -8,6 +8,7 @@ class AlQuranModel {
   String deskripsi;
   AudioModel audioFull;
   List<AyatModel>? ayat;
+  List<TafsirModel>? tafsir;
 
   AlQuranModel(
       {required this.nomor,
@@ -18,7 +19,8 @@ class AlQuranModel {
       required this.arti,
       required this.deskripsi,
       required this.audioFull,
-      this.ayat});
+      this.ayat,
+      this.tafsir});
 
   factory AlQuranModel.fromJson(Map<String, dynamic> json) => AlQuranModel(
       nomor: json["nomor"],
@@ -32,7 +34,11 @@ class AlQuranModel {
       ayat: json["ayat"] == null
           ? null
           : List<AyatModel>.from(
-              json["ayat"].map((x) => AyatModel.fromjson(x))));
+              json["ayat"].map((x) => AyatModel.fromjson(x))),
+      tafsir: json["tafsir"] == null
+          ? null
+          : List<TafsirModel>.from(
+              json["tafsir"].map((x) => TafsirModel.fromJson(x))));
 
   Map<String, dynamic> toJson() => {
         "nomor": nomor,
@@ -82,4 +88,14 @@ class AyatModel {
       teksLatin: json["teksLatin"],
       teksIndonesia: json["teksIndonesia"],
       audio: AudioModel.fromjson(json["audio"]));
+}
+
+class TafsirModel {
+  int ayat;
+  String teks;
+
+  TafsirModel({required this.ayat, required this.teks});
+
+  factory TafsirModel.fromJson(Map<String, dynamic> json) =>
+      TafsirModel(ayat: json["ayat"], teks: json["teks"]);
 }

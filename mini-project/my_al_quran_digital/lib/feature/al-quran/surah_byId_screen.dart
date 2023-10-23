@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_al_quran_digital/bloc/get_surah_by_id/get_surah_by_id_cubit.dart';
+import 'package:my_al_quran_digital/feature/tafsir/tafsir_screen.dart';
 import 'package:my_al_quran_digital/theme.dart';
 import 'package:my_al_quran_digital/widget/surah_card.dart';
 
@@ -43,6 +44,32 @@ class _SurahByIdScreenState extends State<SurahByIdScreen> {
                     fontWeight: FontWeight.bold,
                     color: primaryColor),
               ),
+              actions: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                TafsirScreem(id: item.nomor)));
+                  },
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        "assets/Icon_tafsir.png",
+                        width: 25,
+                      ),
+                      Text(
+                        "Tafsir",
+                        style: primaryText.copyWith(fontSize: 10),
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  width: 20,
+                )
+              ],
             ),
             body: SingleChildScrollView(
                 child: Column(

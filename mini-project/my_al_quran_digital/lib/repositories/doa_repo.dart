@@ -4,6 +4,7 @@ import 'package:my_al_quran_digital/services/base_service.dart';
 class DoaRepo extends BaseService {
   Future<List<DoaModel>> getDoaList() async {
     final res = await get(endpoint: "/doa");
+    // ignore: avoid_print
     print(res.data);
     return List<DoaModel>.from(
         (res.data as Iterable).map((e) => DoaModel.fromJson(e)));
@@ -11,6 +12,7 @@ class DoaRepo extends BaseService {
 
   Future<DoaModel> getDoaById({required int id}) async {
     final res = await get(endpoint: "/doa/$id");
+    // ignore: avoid_print
     print(res.data);
     return DoaModel.fromJson(res.data);
   }

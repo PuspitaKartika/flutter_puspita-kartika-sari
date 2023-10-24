@@ -1,0 +1,18 @@
+<lint-module
+    format="1"
+    dir="/media/puspita/4ac11085-b020-4978-bb3a-baf88760becc/altera/fe_puspita-kartika-sari/mini-project/my_al_quran_digital/android/app"
+    name=":app"
+    type="APP"
+    maven="android:app:"
+    gradle="7.3.0"
+    buildFolder="/media/puspita/4ac11085-b020-4978-bb3a-baf88760becc/altera/fe_puspita-kartika-sari/mini-project/my_al_quran_digital/build/app"
+    bootClassPath="/home/puspita/Android/Sdk/platforms/android-33/android.jar:/home/puspita/Android/Sdk/build-tools/30.0.3/core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-33">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="release"/>
+</lint-module>

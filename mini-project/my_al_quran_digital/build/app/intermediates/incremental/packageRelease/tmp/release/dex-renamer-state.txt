@@ -1,0 +1,4 @@
+#Fri Oct 20 11:46:19 WIB 2023
+base.0=/media/puspita/4ac11085-b020-4978-bb3a-baf88760becc/altera/fe_puspita-kartika-sari/mini-project/my_al_quran_digital/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

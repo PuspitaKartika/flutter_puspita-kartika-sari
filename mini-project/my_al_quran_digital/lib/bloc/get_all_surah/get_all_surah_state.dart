@@ -1,6 +1,6 @@
 part of 'get_all_surah_cubit.dart';
 
-sealed class GetAllSurahState extends Equatable {
+class GetAllSurahState extends Equatable {
   const GetAllSurahState();
 
   @override

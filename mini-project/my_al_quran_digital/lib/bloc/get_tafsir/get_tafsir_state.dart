@@ -1,17 +1,17 @@
 part of 'get_tafsir_cubit.dart';
 
-sealed class GetTafsirState extends Equatable {
+class GetTafsirState extends Equatable {
   const GetTafsirState();
 
   @override
   List<Object> get props => [];
 }
 
-final class GetTafsirInitial extends GetTafsirState {}
+class GetTafsirInitial extends GetTafsirState {}
 
-final class GetTafsirLoading extends GetTafsirState {}
+class GetTafsirLoading extends GetTafsirState {}
 
-final class GetTafsirSuccess extends GetTafsirState {
+class GetTafsirSuccess extends GetTafsirState {
   final AlQuranModel data;
 
   const GetTafsirSuccess({required this.data});
@@ -20,7 +20,7 @@ final class GetTafsirSuccess extends GetTafsirState {
   List<Object> get props => [data];
 }
 
-final class GetTafsirFailure extends GetTafsirState {
+class GetTafsirFailure extends GetTafsirState {
   final String msg;
 
   const GetTafsirFailure({required this.msg});

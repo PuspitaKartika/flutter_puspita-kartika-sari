@@ -80,7 +80,10 @@ class _SurahByIdScreenState extends State<SurahByIdScreen> {
                   child: ListView.builder(
                       itemCount: item.jumlahAyat,
                       itemBuilder: (context, index) {
-                        return AyatCard(item: item.ayat![index]);
+                        return AyatCard(
+                          item: item.ayat![index],
+                          index: index,
+                        );
                       }),
                 )
               ],

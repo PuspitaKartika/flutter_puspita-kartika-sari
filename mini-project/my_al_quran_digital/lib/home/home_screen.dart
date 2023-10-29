@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_al_quran_digital/home/home_menu.dart';
+import 'package:my_al_quran_digital/home/widget/home_slider.dart';
 import 'package:my_al_quran_digital/theme.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -25,14 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           )
         ]),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(20, 0, 20, 5),
-          child: Text(
-            "Terakhir dibaca",
-            style: primaryText.copyWith(fontWeight: FontWeight.bold),
-          ),
-        ),
-        //const SurahCard(),
+        const HomeSlider(),
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 20, 20, 5),
           child: Text(

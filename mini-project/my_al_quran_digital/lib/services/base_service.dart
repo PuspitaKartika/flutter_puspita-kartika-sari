@@ -12,3 +12,15 @@ class BaseService {
     return res;
   }
 }
+
+class JadwalService {
+  Future<Response> get({
+    required String endpoint,
+  }) async {
+    Dio dio = Dio();
+    Response res;
+    dio.options.baseUrl = JADWAL_URL;
+    res = await dio.get(endpoint);
+    return res;
+  }
+}

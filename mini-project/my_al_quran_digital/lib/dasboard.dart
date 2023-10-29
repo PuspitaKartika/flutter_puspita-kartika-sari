@@ -37,7 +37,7 @@ class _DasboardState extends State<Dasboard> {
             ),
             BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.menu_book,
+                  Icons.mosque,
                   color: currenIndex == 1 ? secondaryColor : bgColor,
                 ),
                 label: ""),

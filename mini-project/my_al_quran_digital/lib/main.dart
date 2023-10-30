@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_al_quran_digital/bloc/get_all_country/get_all_country_cubit.dart';
 import 'package:my_al_quran_digital/bloc/get_all_surah/get_all_surah_cubit.dart';
+import 'package:my_al_quran_digital/bloc/get_country_by_id/get_country_by_id_cubit.dart';
 import 'package:my_al_quran_digital/bloc/get_doa_by_id/get_doa_byid_cubit.dart';
 import 'package:my_al_quran_digital/bloc/get_doa_list/get_doa_list_cubit.dart';
+import 'package:my_al_quran_digital/bloc/get_jadwal_solat/get_jadwal_solat_cubit.dart';
 import 'package:my_al_quran_digital/bloc/get_surah_by_id/get_surah_by_id_cubit.dart';
 import 'package:my_al_quran_digital/bloc/get_tafsir/get_tafsir_cubit.dart';
 import 'package:my_al_quran_digital/dasboard.dart';
@@ -26,7 +29,10 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => GetSurahByIdCubit()),
         BlocProvider(create: (_) => GetDoaListCubit()),
         BlocProvider(create: (_) => GetDoaByidCubit()),
-        BlocProvider(create: (_) => GetTafsirCubit())
+        BlocProvider(create: (_) => GetTafsirCubit()),
+        BlocProvider(create: (_) => GetAllCountryCubit()),
+        BlocProvider(create: (_) => GetJadwalSolatCubit()),
+        BlocProvider(create: (_) => GetCountryByIdCubit())
       ],
       child: MaterialApp(
           title: 'Flutter Demo',

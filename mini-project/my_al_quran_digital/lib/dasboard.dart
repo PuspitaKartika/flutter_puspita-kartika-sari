@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_al_quran_digital/feature/jadwal_solat/jadwal_solat_screen.dart';
 import 'package:my_al_quran_digital/home/home_screen.dart';
 import 'package:my_al_quran_digital/theme.dart';
 
@@ -13,7 +14,7 @@ class _DasboardState extends State<Dasboard> {
   int currenIndex = 0;
   List bodyScreen = [
     const HomeScreen(),
-    const Center(child: Text("menu1")),
+    const JadwalSolatSceen(),
     const Center(child: Text("menu1")),
     const Text("profile"),
   ];

@@ -27,7 +27,7 @@ class _HomeMenuState extends State<HomeMenu> {
             iconImage: "Icon_doa.png",
             text: "Doa"),
         CustomButtonIconImage(
-            onTap: () {}, iconImage: "Icon_tafsir.png", text: "Tafsir")
+            onTap: () {}, iconImage: "icon_play.png", text: "Murotal")
       ],
     );
   }

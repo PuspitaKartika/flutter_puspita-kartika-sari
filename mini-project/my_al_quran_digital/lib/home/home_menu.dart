@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_al_quran_digital/feature/murotal/murotal_screen.dart';
 import 'package:my_al_quran_digital/utils/custom_botton_icon_image.dart';
 
 class HomeMenu extends StatefulWidget {
@@ -27,7 +28,14 @@ class _HomeMenuState extends State<HomeMenu> {
             iconImage: "Icon_doa.png",
             text: "Doa"),
         CustomButtonIconImage(
-            onTap: () {}, iconImage: "icon_play.png", text: "Murotal")
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const MurotalScreen()));
+            },
+            iconImage: "icon_play.png",
+            text: "Murotal")
       ],
     );
   }

@@ -27,9 +27,12 @@ class _SurahByIdScreenState extends State<SurahByIdScreen> {
     return BlocBuilder<GetSurahByIdCubit, GetSurahByIdState>(
       builder: (context, state) {
         if (state is GetSurahByIdLoading) {
-          return const CircularProgressIndicator();
+          return Scaffold(
+              backgroundColor: bgColor,
+              body: const Center(child: CircularProgressIndicator()));
         } else if (state is GetSurahByIdFailure) {
-          return Scaffold(body: Center(child: Text(state.msg)));
+          return Scaffold(
+              backgroundColor: bgColor, body: Center(child: Text(state.msg)));
         } else if (state is GetSurahByIdSuccess) {
           final item = state.data;
           return Scaffold(

@@ -14,11 +14,10 @@ class AudioAlquranScreen extends StatefulWidget {
 
 class _AudioAlquranScreenState extends State<AudioAlquranScreen> {
   final audioPlayer = AudioPlayer();
-
   bool _isAudioPlay = false;
-
   double _currentSliderPrimaryValue = 0;
   Duration _maxDuration = const Duration(seconds: 1);
+  double rotationAngle = 0;
 
   void playAudio(String url) async {
     await audioPlayer.play(
@@ -29,10 +28,9 @@ class _AudioAlquranScreenState extends State<AudioAlquranScreen> {
     final maxDuration = await audioPlayer.getDuration();
     setState(() {
       _maxDuration = maxDuration!;
+      _isAudioPlay = true;
     });
-    _isAudioPlay = true;
     updateSliderPosition();
-    setState(() {});
   }
 
   void pauseAudio() async {
@@ -52,7 +50,10 @@ class _AudioAlquranScreenState extends State<AudioAlquranScreen> {
       if (audioPlayer.state == PlayerState.playing && mounted) {
         setState(() {
           _currentSliderPrimaryValue = duration.inSeconds.toDouble();
+          rotationAngle += 1;
         });
+      } else if (audioPlayer.state == PlayerState.paused && mounted) {
+        rotationAngle = 0; // Reset rotation angle when audio is paused
       }
     });
   }
@@ -68,6 +69,12 @@ class _AudioAlquranScreenState extends State<AudioAlquranScreen> {
     return Scaffold(
         backgroundColor: bgColor,
         appBar: AppBar(
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+                stopAudio();
+              },
+              icon: const Icon(Icons.arrow_back)),
           backgroundColor: bgColor,
         ),
         body: BlocBuilder<GetSurahByIdCubit, GetSurahByIdState>(
@@ -83,15 +90,18 @@ class _AudioAlquranScreenState extends State<AudioAlquranScreen> {
               return SingleChildScrollView(
                 child: Column(
                   children: [
-                    Container(
-                      height: MediaQuery.of(context).size.height * 0.3,
-                      width: MediaQuery.of(context).size.width * 0.5,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: borderColor, width: 3),
-                          shape: BoxShape.circle,
-                          image: const DecorationImage(
-                              image: AssetImage("assets/bg1.png"),
-                              fit: BoxFit.cover)),
+                    RotationTransition(
+                      turns: AlwaysStoppedAnimation(rotationAngle / 360),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.3,
+                        width: MediaQuery.of(context).size.width * 0.5,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: borderColor, width: 3),
+                            shape: BoxShape.circle,
+                            image: const DecorationImage(
+                                image: AssetImage("assets/bg1.png"),
+                                fit: BoxFit.cover)),
+                      ),
                     ),
                     Text(
                       data.namaLatin,
@@ -112,9 +122,8 @@ class _AudioAlquranScreenState extends State<AudioAlquranScreen> {
                         IconButton(
                             onPressed: () {
                               stopAudio();
-                              context
-                                  .read<GetSurahByIdCubit>()
-                                  .fectSurahById(data.nomor - 1);
+                              // context.read<GetSurahByIdCubit>().fectSurahById(
+                              //     data.suratSebelumnya?.nomor ?? 1);
                               playAudio(data.audioFull.dua!);
                             },
                             icon: const Icon(
@@ -143,10 +152,8 @@ class _AudioAlquranScreenState extends State<AudioAlquranScreen> {
                         IconButton(
                             onPressed: () {
                               stopAudio();
-
-                              context
-                                  .read<GetSurahByIdCubit>()
-                                  .fectSurahById(data.nomor + 1);
+                              context.read<GetSurahByIdCubit>().fectSurahById(
+                                  data.suratSelanjutnya?.nomor ?? 144);
                               playAudio(data.audioFull.dua!);
                             },
                             icon: const Icon(

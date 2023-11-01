@@ -9,6 +9,8 @@ class AlQuranModel {
   AudioModel audioFull;
   List<AyatModel>? ayat;
   List<TafsirModel>? tafsir;
+  SuratModel? suratSelanjutnya;
+  SuratModel? suratSebelumnya;
 
   AlQuranModel(
       {required this.nomor,
@@ -20,25 +22,36 @@ class AlQuranModel {
       required this.deskripsi,
       required this.audioFull,
       this.ayat,
-      this.tafsir});
+      this.tafsir,
+      this.suratSelanjutnya,
+      this.suratSebelumnya});
 
   factory AlQuranModel.fromJson(Map<String, dynamic> json) => AlQuranModel(
-      nomor: json["nomor"],
-      nama: json["nama"],
-      namaLatin: json["namaLatin"],
-      jumlahAyat: json["jumlahAyat"],
-      tempatTurun: json["tempatTurun"],
-      arti: json["arti"],
-      deskripsi: json["deskripsi"],
-      audioFull: AudioModel.fromjson(json["audioFull"]),
-      ayat: json["ayat"] == null
-          ? null
-          : List<AyatModel>.from(
-              json["ayat"].map((x) => AyatModel.fromjson(x))),
-      tafsir: json["tafsir"] == null
-          ? null
-          : List<TafsirModel>.from(
-              json["tafsir"].map((x) => TafsirModel.fromJson(x))));
+        nomor: json["nomor"],
+        nama: json["nama"],
+        namaLatin: json["namaLatin"],
+        jumlahAyat: json["jumlahAyat"],
+        tempatTurun: json["tempatTurun"],
+        arti: json["arti"],
+        deskripsi: json["deskripsi"],
+        audioFull: AudioModel.fromjson(json["audioFull"]),
+        ayat: json["ayat"] == null
+            ? null
+            : List<AyatModel>.from(
+                json["ayat"].map((x) => AyatModel.fromjson(x))),
+        tafsir: json["tafsir"] == null
+            ? null
+            : List<TafsirModel>.from(
+                json["tafsir"].map((x) => TafsirModel.fromJson(x))),
+        suratSebelumnya:
+            json["suratSebelumnya"] == false || json["suratSebelumnya"] == null
+                ? null
+                : SuratModel.fromjson(json["suratSebelumnya"]),
+        suratSelanjutnya: json["suratSelanjutnya"] == false ||
+                json["suratSelanjutnya"] == null
+            ? null
+            : SuratModel.fromjson(json["suratSelanjutnya"]),
+      );
 
   Map<String, dynamic> toJson() => {
         "nomor": nomor,
@@ -98,4 +111,19 @@ class TafsirModel {
 
   factory TafsirModel.fromJson(Map<String, dynamic> json) =>
       TafsirModel(ayat: json["ayat"], teks: json["teks"]);
+}
+
+class SuratModel {
+  int? nomor;
+  String? nama;
+  String? namaLatin;
+  int? jumlahAyat;
+
+  SuratModel({this.nomor, this.nama, this.namaLatin, this.jumlahAyat});
+
+  factory SuratModel.fromjson(Map<String, dynamic> json) => SuratModel(
+      nomor: json["nomor"] ?? 1,
+      nama: json["nama"] ?? "",
+      namaLatin: json["namaLatin"] ?? "",
+      jumlahAyat: json["jumlahAyat"] ?? 0);
 }

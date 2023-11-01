@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_al_quran_digital/feature/jadwal_solat/jadwal_solat_screen.dart';
 import 'package:my_al_quran_digital/feature/open_ai/open_ai_screen.dart';
+import 'package:my_al_quran_digital/feature/profile/profile_screen.dart';
 import 'package:my_al_quran_digital/home/home_screen.dart';
 import 'package:my_al_quran_digital/theme.dart';
 
@@ -17,7 +18,7 @@ class _DasboardState extends State<Dasboard> {
     const HomeScreen(),
     const JadwalSolatSceen(),
     const OpenAiScreen(),
-    const Text("profile"),
+    const ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {

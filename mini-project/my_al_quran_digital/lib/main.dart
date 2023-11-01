@@ -13,6 +13,7 @@ import 'package:my_al_quran_digital/dasboard.dart';
 import 'package:my_al_quran_digital/feature/al-quran/alquran_screen.dart';
 import 'package:my_al_quran_digital/feature/doa/doa_screen.dart';
 import 'package:my_al_quran_digital/splash_screen.dart';
+import 'package:my_al_quran_digital/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
           title: 'Flutter Demo',
           theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            colorScheme: ColorScheme.fromSeed(seedColor: borderColor),
             useMaterial3: true,
           ),
           initialRoute: '/',

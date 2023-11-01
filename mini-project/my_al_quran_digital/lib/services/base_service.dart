@@ -7,7 +7,7 @@ class BaseService {
   }) async {
     Dio dio = Dio();
     Response res;
-    dio.options.baseUrl = BASE_URL;
+    dio.options.baseUrl = baseUrl;
     res = await dio.get(endpoint);
     return res;
   }
@@ -19,7 +19,7 @@ class JadwalService {
   }) async {
     Dio dio = Dio();
     Response res;
-    dio.options.baseUrl = JADWAL_URL;
+    dio.options.baseUrl = jadwalUrl;
     res = await dio.get(endpoint);
     return res;
   }

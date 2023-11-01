@@ -16,43 +16,43 @@ class AlQuranCard extends StatelessWidget {
             MaterialPageRoute(
                 builder: (context) => SurahByIdScreen(id: item.nomor)));
       },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: const BoxDecoration(
-                      color: Colors.white, shape: BoxShape.circle),
-                  child: Text(item.nomor.toString()),
-                ),
-                const SizedBox(width: 20),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      item.namaLatin,
-                      style: primaryText.copyWith(
-                          fontSize: 16, fontWeight: FontWeight.bold),
-                    ),
-                    Text("${item.tempatTurun} || ${item.jumlahAyat} ayat"),
-                  ],
-                ),
-                const Expanded(child: SizedBox()),
-                Text(
-                  item.nama,
-                  style: primaryText.copyWith(fontWeight: FontWeight.bold),
-                ),
-              ],
+      child: Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.symmetric(vertical: 10),
+            decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    offset: const Offset(1, 1),
+                    color: Colors.grey.withOpacity(0.3),
+                    blurRadius: 2,
+                    spreadRadius: 2,
+                  ),
+                ],
+                border: Border.all(color: borderColor),
+                borderRadius: BorderRadius.circular(20),
+                image: const DecorationImage(
+                    image: AssetImage("assets/blur2.png"), fit: BoxFit.cover)),
+            child: ListTile(
+              leading: Container(
+                padding: const EdgeInsets.all(10),
+                decoration: const BoxDecoration(
+                    color: Colors.white, shape: BoxShape.circle),
+                child: Text(item.nomor.toString()),
+              ),
+              title: Text(
+                item.namaLatin,
+                style: primaryText.copyWith(
+                    fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text("${item.tempatTurun} || ${item.jumlahAyat} ayat"),
+              trailing: Text(
+                item.nama,
+                style: primaryText.copyWith(fontWeight: FontWeight.bold),
+              ),
             ),
-            Divider(
-              color: primaryColor.withOpacity(0.2),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

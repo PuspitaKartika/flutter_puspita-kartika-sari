@@ -18,28 +18,6 @@ class _MurotalScreenState extends State<MurotalScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const Text("tes"),
-            BlocBuilder<GetSurahByIdCubit, GetSurahByIdState>(
-                builder: (context, state) {
-              if (state is GetSurahByIdLoading) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              } else if (state is GetSurahByIdFailure) {
-                return Text(state.msg);
-              } else if (state is GetSurahByIdSuccess) {
-                return Text(state.murotal.first);
-              }
-              return const SizedBox();
-            })
-          ],
-        ),
-      ),
-    );
+    return Scaffold();
   }
 }

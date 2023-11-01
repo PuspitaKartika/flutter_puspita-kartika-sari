@@ -56,7 +56,7 @@ class _DoaScreenState extends State<DoaScreen> {
               child: BlocBuilder<GetDoaListCubit, GetDoaListState>(
                   builder: (context, state) {
                 if (state is GetDoaListLoading) {
-                  return const CircularProgressIndicator();
+                  return const Center(child: CircularProgressIndicator());
                 } else if (state is GetDoaListFailure) {
                   return Text(state.msg);
                 } else if (state is GetDoaListSuccess) {

@@ -13,9 +13,8 @@ class GetSurahByIdLoading extends GetSurahByIdState {}
 
 class GetSurahByIdSuccess extends GetSurahByIdState {
   final AlQuranModel data;
-  final List<String> murotal;
 
-  const GetSurahByIdSuccess(this.murotal, {required this.data});
+  const GetSurahByIdSuccess({required this.data});
 
   @override
   List<Object> get props => [data];

@@ -38,39 +38,26 @@ class _AlQuranScreenState extends State<AlQuranScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            Row(
-              children: [
-                Expanded(
-                  child: TextFormField(
-                      controller: searchEcd,
-                      decoration: InputDecoration(
-                        hintText: 'Search',
-                        filled: true,
-                        fillColor: Colors.white,
-                        contentPadding: const EdgeInsets.all(10),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: BorderSide.none,
-                        ),
-                      ),
-                      style: primaryText),
+            TextFormField(
+                controller: searchEcd,
+                decoration: InputDecoration(
+                  suffixIcon: const Icon(Icons.search),
+                  hintText: 'Search',
+                  filled: true,
+                  fillColor: Colors.white,
+                  contentPadding: const EdgeInsets.all(10),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: BorderSide.none,
+                  ),
                 ),
-                IconButton(
-                    onPressed: () {
-                      searchEcd.selection;
-                    },
-                    icon: Icon(
-                      Icons.search,
-                      color: primaryColor,
-                    ))
-              ],
-            ),
+                style: primaryText),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.8,
               child: BlocBuilder<GetAllSurahCubit, GetAllSurahState>(
                   builder: (context, state) {
                 if (state is GetAllSurahILoading) {
-                  return const CircularProgressIndicator();
+                  return const Center(child: CircularProgressIndicator());
                 } else if (state is GetAllSurahFailure) {
                   return Text(state.msg);
                 } else if (state is GetAllSurahSuccess) {

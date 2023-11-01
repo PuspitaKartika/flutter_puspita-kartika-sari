@@ -14,9 +14,8 @@ class GetSurahByIdCubit extends Cubit<GetSurahByIdState> {
     emit(GetSurahByIdLoading());
     try {
       final data = await _repo.getSurahById(id: id);
-      final murotal = data.ayat!.map((e) => e.audio.satu!).toList();
 
-      emit(GetSurahByIdSuccess(murotal, data: data));
+      emit(GetSurahByIdSuccess(data: data));
     } catch (e) {
       emit(GetSurahByIdFailure(msg: e.toString()));
     }

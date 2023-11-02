@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_al_quran_digital/bloc/get_all_surah/get_all_surah_cubit.dart';
 import 'package:my_al_quran_digital/ui/murotal/murotal_screen.dart';
 import 'package:my_al_quran_digital/utils/custom_botton_icon_image.dart';
 
@@ -10,6 +12,12 @@ class HomeMenu extends StatefulWidget {
 }
 
 class _HomeMenuState extends State<HomeMenu> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<GetAllSurahCubit>().fetchAll();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(

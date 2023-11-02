@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_al_quran_digital/feature/murotal/murotal_screen.dart';
+import 'package:my_al_quran_digital/ui/murotal/murotal_screen.dart';
 import 'package:my_al_quran_digital/utils/custom_botton_icon_image.dart';
 
 class HomeMenu extends StatefulWidget {

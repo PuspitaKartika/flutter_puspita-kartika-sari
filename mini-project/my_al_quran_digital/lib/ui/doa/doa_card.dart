@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_al_quran_digital/feature/doa/doa_id_screen.dart';
+import 'package:my_al_quran_digital/ui/doa/doa_id_screen.dart';
 import 'package:my_al_quran_digital/model/doa_model.dart';
 import 'package:my_al_quran_digital/theme.dart';
 

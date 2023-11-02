@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_al_quran_digital/bloc/get_all_surah/get_all_surah_cubit.dart';
-import 'package:my_al_quran_digital/feature/al-quran/widget/alquran_card.dart';
+import 'package:my_al_quran_digital/bloc/get_doa_list/get_doa_list_cubit.dart';
+import 'package:my_al_quran_digital/ui/doa/doa_card.dart';
 import 'package:my_al_quran_digital/theme.dart';
 
-class AlQuranScreen extends StatefulWidget {
-  const AlQuranScreen({super.key});
+class DoaScreen extends StatefulWidget {
+  const DoaScreen({super.key});
 
   @override
-  State<AlQuranScreen> createState() => _AlQuranScreenState();
+  State<DoaScreen> createState() => _DoaScreenState();
 }
 
-class _AlQuranScreenState extends State<AlQuranScreen> {
+class _DoaScreenState extends State<DoaScreen> {
   final searchEcd = TextEditingController();
+
   @override
   void initState() {
     super.initState();
-    context.read<GetAllSurahCubit>().fetchAll();
+    context.read<GetDoaListCubit>().fetchAll();
   }
 
   @override
@@ -27,11 +28,9 @@ class _AlQuranScreenState extends State<AlQuranScreen> {
         backgroundColor: bgColor,
         centerTitle: true,
         title: Text(
-          "Al-Quran",
-          style: primaryText.copyWith(
-            fontWeight: FontWeight.bold,
-            fontSize: 14,
-          ),
+          "Doa",
+          style:
+              primaryText.copyWith(fontSize: 14, fontWeight: FontWeight.bold),
         ),
       ),
       body: SingleChildScrollView(
@@ -54,15 +53,15 @@ class _AlQuranScreenState extends State<AlQuranScreen> {
                 style: primaryText),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.8,
-              child: BlocBuilder<GetAllSurahCubit, GetAllSurahState>(
+              child: BlocBuilder<GetDoaListCubit, GetDoaListState>(
                   builder: (context, state) {
-                if (state is GetAllSurahILoading) {
+                if (state is GetDoaListLoading) {
                   return const Center(child: CircularProgressIndicator());
-                } else if (state is GetAllSurahFailure) {
+                } else if (state is GetDoaListFailure) {
                   return Text(state.msg);
-                } else if (state is GetAllSurahSuccess) {
+                } else if (state is GetDoaListSuccess) {
                   final data = state.data
-                      .where((element) => (element.namaLatin
+                      .where((element) => (element.nama
                           .toString()
                           .toLowerCase()
                           .contains(searchEcd.text.toLowerCase())))
@@ -70,7 +69,7 @@ class _AlQuranScreenState extends State<AlQuranScreen> {
                   return ListView.builder(
                       itemCount: data.length,
                       itemBuilder: (context, index) {
-                        return AlQuranCard(item: data[index]);
+                        return DoaCard(item: data[index]);
                       });
                 }
                 return const SizedBox();

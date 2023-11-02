@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_al_quran_digital/bloc/get_all_country/get_all_country_cubit.dart';
 import 'package:my_al_quran_digital/bloc/get_country_by_id/get_country_by_id_cubit.dart';
 import 'package:my_al_quran_digital/bloc/get_jadwal_solat/get_jadwal_solat_cubit.dart';
-import 'package:my_al_quran_digital/feature/jadwal_solat/widget/jadwal_widget.dart';
+import 'package:my_al_quran_digital/ui/jadwal_solat/widget/jadwal_widget.dart';
 import 'package:my_al_quran_digital/model/country_model.dart';
 import 'package:my_al_quran_digital/theme.dart';
 

@@ -9,10 +9,10 @@ import 'package:my_al_quran_digital/bloc/get_jadwal_solat/get_jadwal_solat_cubit
 import 'package:my_al_quran_digital/bloc/get_open_ai/get_open_ai_cubit.dart';
 import 'package:my_al_quran_digital/bloc/get_surah_by_id/get_surah_by_id_cubit.dart';
 import 'package:my_al_quran_digital/bloc/get_tafsir/get_tafsir_cubit.dart';
-import 'package:my_al_quran_digital/dasboard.dart';
-import 'package:my_al_quran_digital/feature/al-quran/alquran_screen.dart';
-import 'package:my_al_quran_digital/feature/doa/doa_screen.dart';
-import 'package:my_al_quran_digital/splash_screen.dart';
+import 'package:my_al_quran_digital/ui/dasboard.dart';
+import 'package:my_al_quran_digital/ui/al-quran/alquran_screen.dart';
+import 'package:my_al_quran_digital/ui/doa/doa_screen.dart';
+import 'package:my_al_quran_digital/ui/splash_screen.dart';
 import 'package:my_al_quran_digital/theme.dart';
 
 void main() {

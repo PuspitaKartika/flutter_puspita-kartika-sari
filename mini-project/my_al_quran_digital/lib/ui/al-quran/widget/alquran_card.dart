@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_al_quran_digital/feature/al-quran/surah_byId_screen.dart';
+import 'package:my_al_quran_digital/ui/al-quran/surah_by_id_screen.dart';
 import 'package:my_al_quran_digital/model/alquran_model.dart';
 import 'package:my_al_quran_digital/theme.dart';
 

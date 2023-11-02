@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_al_quran_digital/home/home_menu.dart';
-import 'package:my_al_quran_digital/home/widget/home_slider.dart';
+import 'package:my_al_quran_digital/ui/home/home_menu.dart';
+import 'package:my_al_quran_digital/ui/home/widget/home_slider.dart';
 import 'package:my_al_quran_digital/theme.dart';
 
 class HomeScreen extends StatefulWidget {

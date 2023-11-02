@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_al_quran_digital/bloc/get_surah_by_id/get_surah_by_id_cubit.dart';
-import 'package:my_al_quran_digital/feature/tafsir/tafsir_screen.dart';
+import 'package:my_al_quran_digital/ui/tafsir/tafsir_screen.dart';
 import 'package:my_al_quran_digital/theme.dart';
 import 'package:my_al_quran_digital/widget/surah_card.dart';
-
 import 'widget/ayat_card.dart';
 
 class SurahByIdScreen extends StatefulWidget {

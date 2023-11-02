@@ -73,6 +73,9 @@ class _JadwalSolatSceenState extends State<JadwalSolatSceen> {
                                     setState(() {
                                       id = int.parse(value!);
                                       context
+                                          .read<GetCountryByIdCubit>()
+                                          .fetchBy(int.parse(value));
+                                      context
                                           .read<GetJadwalSolatCubit>()
                                           .fetchJadwalSolat(
                                               id: id, tanggal: tanggal);

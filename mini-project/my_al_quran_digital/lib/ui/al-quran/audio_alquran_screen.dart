@@ -122,8 +122,8 @@ class _AudioAlquranScreenState extends State<AudioAlquranScreen> {
                         IconButton(
                             onPressed: () {
                               stopAudio();
-                              // context.read<GetSurahByIdCubit>().fectSurahById(
-                              //     data.suratSebelumnya?.nomor ?? 1);
+                              context.read<GetSurahByIdCubit>().fectSurahById(
+                                  data.suratSebelumnya?.nomor ?? 1);
                               playAudio(data.audioFull.dua!);
                             },
                             icon: const Icon(
